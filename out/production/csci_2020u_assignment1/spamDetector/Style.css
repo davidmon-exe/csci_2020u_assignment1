@@ -1,0 +1,28 @@
+.textField {
+}
+
+.button {
+    -fx-background-color: darkgrey;
+    -fx-font-size: 20px;
+}
+
+.anchorPane {
+    -fx-background-color: aqua;
+}
+
+.tableView {
+    -fx-base: #A9A9A9;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.locationLabel {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.locationField {
+}

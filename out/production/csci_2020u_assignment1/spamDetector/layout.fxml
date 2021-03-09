@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane fx:controller="spamDetector.Controller" prefWidth="800" prefHeight="700" xmlns:fx="http://javafx.com/fxml"
+            styleClass="anchorPane">
+
+    <TableView fx:id="tableView" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="15" styleClass="tableView"
+                prefHeight="450">
+        <columns>
+            <TableColumn fx:id="fileNameCol" text="File" prefWidth="400">
+                <cellValueFactory><PropertyValueFactory property="fileName"/></cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="actualClassCol" text="Actual Class" prefWidth="150">
+                <cellValueFactory><PropertyValueFactory property="actualClass"/></cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="spamProbCol" text="Spam Probability" prefWidth="220">
+                <cellValueFactory><PropertyValueFactory property="spamProbability"/></cellValueFactory>
+            </TableColumn>
+        </columns>
+        <sortOrder><fx:reference source="fileNameCol"/></sortOrder>
+        <items><FXCollections fx:factory="observableArrayList"/></items>
+    </TableView>
+    <Button fx:id="trainButton" text="Train" styleClass="button" onAction="#handleTrain"
+            AnchorPane.topAnchor="620" AnchorPane.leftAnchor="50.0"  prefWidth="100"/>
+    <Button fx:id="testButton"  text="Test" styleClass="button" onAction="#handleTest"
+            AnchorPane.topAnchor="620" AnchorPane.leftAnchor="200.0" prefWidth="100" />
+
+    <Label text="Accuracy:" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="15" styleClass="label"/>
+    <TextField fx:id="accuracyField" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="100" styleClass="textField" />
+
+    <Label text="Precision:" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="365" styleClass="label"/>
+    <TextField fx:id="precisionField" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="450" styleClass="textField" />
+
+    <Label text="Train Location:" AnchorPane.topAnchor="527.5" AnchorPane.leftAnchor="15" styleClass="locationLabel"/>
+    <TextField fx:id="trainLocation" AnchorPane.topAnchor="525" AnchorPane.leftAnchor="165" styleClass="locationField"
+                prefWidth="300"/>
+
+    <Label text="Test Location:" AnchorPane.topAnchor="562.5" AnchorPane.leftAnchor="15" styleClass="locationLabel"/>
+    <TextField fx:id="testLocation" AnchorPane.topAnchor="560" AnchorPane.leftAnchor="165" styleClass="locationField"
+               prefWidth="300"/>
+    <ImageView fx:id="imageView" fitHeight="125" fitWidth="155" AnchorPane.topAnchor="520" AnchorPane.rightAnchor="50" >
+        <image>
+            <Image url="http://www.marshalrusty.com/phpBB/spam/spam_bot.jpg" />
+        </image>
+    </ImageView>
+    <stylesheets>
+        <URL value="@Style.css" />
+    </stylesheets>
+
+</AnchorPane>
